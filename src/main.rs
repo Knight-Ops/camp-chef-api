@@ -74,11 +74,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     mqtt::subscribe_device_all(&mqtt_client, &devices.devices[0].mac).await?;
 
-    // mqtt_client
-    //     .subscribe("snapshot/v2/accepted", QoS::AtMostOnce)
-    //     .await
-    //     .unwrap();
-
     loop {}
 
     Ok(())
