@@ -154,20 +154,3 @@ pub async fn subscribe_device_all(
 
     Ok(())
 }
-
-pub async fn subscribe_firehose(client: &AsyncClient) -> Result<(), Box<std::error::Error>> {
-    client
-        .subscribe("snapshot/v2/accepted", QoS::AtMostOnce)
-        .await?;
-    Ok(())
-}
-
-pub async fn subscribe_wildcard(client: &AsyncClient) -> Result<(), Box<std::error::Error>> {
-    client.subscribe("#", QoS::AtMostOnce).await?;
-    Ok(())
-}
-
-pub async fn subscribe_app_disconnects(client: &AsyncClient) -> Result<(), Box<std::error::Error>> {
-    client.subscribe("my/lwt/topic", QoS::AtMostOnce).await?;
-    Ok(())
-}
